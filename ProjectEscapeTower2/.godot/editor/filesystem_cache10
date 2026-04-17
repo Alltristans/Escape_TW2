@@ -1,0 +1,10 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1776366944
+Director.gd::GDScript::3367222088633342767::1776366619::0::1::::<>Node<><>0<>0<><>::
+EscapeExit.gd::GDScript::1536227331640606193::1776366651::0::1::::<>Area3D<><>0<>0<><>::
+Ghost.gd::GDScript::7048990349617449009::1776366637::0::1::::<>CharacterBody3D<><>0<>0<><>::
+Interactable.gd::GDScript::1517017242939818373::1776366639::0::1::::<>Area3D<><>0<>0<><>::
+LabStation.gd::GDScript::3570734967200369380::1776366641::0::1::::<>Area3D<><>0<>0<><>::
+Main.gd::GDScript::7814403130279676505::1776366649::0::1::::<>Node3D<><>0<>0<><>::
+Main.tscn::PackedScene::-1::1776366684::0::1::::<><><>0<>0<><>::res://Main.gd<>res://Player.gd<>res://Ghost.gd<>res://Interactable.gd<>res://LabStation.gd<>res://EscapeExit.gd
+Player.gd::GDScript::2333285714494186751::1776366621::0::1::::<>CharacterBody3D<><>0<>0<><>::

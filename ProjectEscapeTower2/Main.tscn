@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://t2p7uqmpgp17"]
+
+[ext_resource type="Script" uid="uid://djlmcwadjjxf2" path="res://Main.gd" id="1_main"]
+[ext_resource type="Script" uid="uid://8ii40j7aivql" path="res://Player.gd" id="2_player"]
+[ext_resource type="Script" uid="uid://c7ot3uobtj0un" path="res://Ghost.gd" id="3_ghost"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_flat"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ghost"]
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ghost"]
+height = 1.8
+
+[node name="Main" type="Node3D" unique_id=50240677]
+script = ExtResource("1_main")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1405150312]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 0)
+shadow_enabled = true
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=390924696]
+navigation_mesh = SubResource("NavigationMesh_flat")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1620660818]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(100, 1, 100)
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1952057653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
+script = ExtResource("2_player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1751038389]
+shape = SubResource("CapsuleShape3D_player")
+
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1820781020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+
+[node name="Ghost" type="CharacterBody3D" parent="." unique_id=1020578921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -15)
+script = ExtResource("3_ghost")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ghost" unique_id=1445777329]
+shape = SubResource("CapsuleShape3D_ghost")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ghost" unique_id=1671399503]
+mesh = SubResource("CapsuleMesh_ghost")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Ghost" unique_id=1372942614]
+
+[node name="PatrolPoints" type="Node" parent="." unique_id=1092425311]
+
+[node name="P1" type="Node3D" parent="PatrolPoints" unique_id=1218796299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 1, -20)
+
+[node name="P2" type="Node3D" parent="PatrolPoints" unique_id=295489831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, -20)
+
+[node name="P3" type="Node3D" parent="PatrolPoints" unique_id=421642846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 20)
+
+[node name="P4" type="Node3D" parent="PatrolPoints" unique_id=1419548865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 1, 20)
